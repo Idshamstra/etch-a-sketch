@@ -24,11 +24,14 @@ body {
     flex: auto;
     display: flex;
     flex-direction: column;
+    border: 1px solid black;
+    
 }
 
 .gridSquare {
     flex: auto;
     padding-bottom: 100%;
+    border: 1px solid black;
 }
 
 #buttonContainer {
@@ -41,6 +44,8 @@ body {
     margin: 10px 60px;
     border-radius: 16px;
     background-color: rgb(red, green, blue);
+    background-color: black;
+    color: white;
 }
 
 #header {
