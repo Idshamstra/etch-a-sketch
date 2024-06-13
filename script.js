@@ -1,15 +1,58 @@
-const grid = document.querySelector('container');
+let container = document.querySelector("#container");
+let size;
 
-function sowDefaultGrid() {
-    const gridSize = 16;
-    const sellSize = calculateCellSize(gridSize);
+function genDivs(size) {
 
-    for (let i = 0; i < gridSize; i++) {
-        for (let j = 0; j < gridSize; i++) {
-            let div = document.createElement('div');
-            container.appendChild(div);
-            div.style.width = `${cellSize}px`;
-            div.style.height = `${cellSize}px`;
-        }
+  for (let i = 0; i < size; i++) {
+    let row = document.createElement("div");
+    row.className = "row";
+    for (let j = 1; j <= size; j++) {
+      let cell = document.createElement("div");
+      cell.className = "gridSquare";
+      row.appendChild(cell);
     }
+    container.appendChild(row);
+  }
+}
+
+function getSize(size) {
+  do {
+    size = parseInt(prompt("Input grid size. Must be below 100: ", ""));
+  } while(size > 99 || !Number.isInteger(size));
+  return size;
+}
+
+genDivs(64);
+
+container.addEventListener("mouseover", (event) => {
+  let target = event.target;
+  
+  if (target.className === "gridSquare") {
+    setBg(target);
+  }
+});
+
+function setBg (target) {
+  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  target.style.backgroundColor = "#" + randomColor;
+}
+
+const clear = document.querySelector("#clear");
+
+clear.addEventListener("click", () => {
+  clickHandler()
+});
+
+function clickHandler() {
+  removeCanvas();
+  size = getSize();
+  genDivs(size);
+}
+
+function removeCanvas() {
+  const rows = document.querySelectorAll(".row");
+
+  while (container.firstChild) {
+    container.removeChild(container.lastChild);
+  }
 }

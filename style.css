@@ -1,20 +1,56 @@
-h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: green;
+html, body {
+    margin: 0;
+    height: 100%;
 }
 
-.container {
-    min-width: 250px;
-    min-height: 250px;
-    max-width: 500px;
-    max-height: 500px;
-    box-sizing: border-box;
+body {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: orange;
+}
+
+#container {
+    flex: 0 0 auto;
+    display: flex;
+    margin: auto;
     justify-content: center;
-    margin: 0 auto;
-    border: 2px solid black;
-    padding: 0px;
+    border: 1px solid black;
+    width: 40%;
+    height: 0;
+    padding-bottom: 40%;
+}
+
+.row{
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.gridSquare {
+    flex: auto;
+    padding-bottom: 100%;
+}
+
+#buttonContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+#clear {
+    flex: 0 1 auto;
+    margin: 10px 60px;
+    border-radius: 16px;
+    background-color: rgb(red, green, blue);
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    
+    color: black;
+    display: flex;
+    justify-content: center;
 }
